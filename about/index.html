@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MagneTee - À propos de nous</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/3d/267b_3d.png">
+    <link rel="apple-touch-icon" href="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/3d/267b_3d.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/dark.css">
+    <link rel="stylesheet" href="../assets/css/font.css">
+
+    <!-- Meta Essentiels -->
+    <meta name="description" content="Site de MagneTee.">
+    <meta name="keywords" content="MagneTee">
+    <meta name="author" content="MagneTee">
+
+    <!-- Meta Thème -->
+    <meta name="theme-color" content="#E4F1F9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a2e" media="(prefers-color-scheme: dark)">
+    <meta name="msapplication-TileColor" content="#3f37c9">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://MagneTee13.github.io/">
+    <meta property="og:title" content="MagneTee - À propos de nous">
+    <meta property="og:description" content="Site de MagneTee.">
+    <meta property="og:image" content="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/3d/267b_3d.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MagneTee - Page d'À propos de nous">
+    <meta name="twitter:description" content="Site de MagneTee.">
+    <meta name="twitter:image" content="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/3d/267b_3d.png">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="MagneTee - À propos de nous">
+</head>
+
+<body>
+    <!-- SCRIPT -->
+    <script src="../assets/css/OTHER.LIST"></script>
+    <script src="../assets/js/splash.js"></script>
+    <script src="../assets/js/imports.js"></script>
+    <script src="../assets/js/splash.js"></script>
+
+    <!-- MAIN -->
+    <main class="container">
+        <br>
+        <div class="center">
+            <div class="about">
+                <h1>A propos de moi</h1>
+                <br>
+                <p>
+                    Je suis un développeur fullstack. J'aime créer des applications et des
+                    sites web intuitifs, modernes et performants.<br><br>
+                    Je travaille principalement avec
+                    <span style="color: #357433;">Node.js</span> et en
+                    <span style="color: #E34F26;">HTML</span>, <span style="color: #1572B6;">CSS</span>,
+                    <span style="color: #b8a516;">JavaScript</span>. Je débute aussi
+                    <span style="color: #F15B29;">SQLite</span> pour la gestion de bases de données. <br><br>
+                </p><br>
+
+                <h2 style="text-align: center;">Compétences</h2>
+
+                <div class="center-wrapper">
+                    <div class="skills">
+                        <i class="bx bxl-html5" data-tooltip="HTML">
+                            <img src="../assets/img/html.png" width="40px" alt="HTML">
+                        </i>
+                        <i class="bx bxl-css3" data-tooltip="CSS">
+                            <img src="../assets/img/css.png" width="40px" alt="CSS">
+                        </i>
+                        <i class="bx bxl-javascript" data-tooltip="JavaScript">
+                            <img src="../assets/img/js.png" width="40px" alt="JavaScript">
+                        </i>
+                        <i class="bx bxl-nodejs" data-tooltip="Node.js">
+                            <img src="../assets/img/nodejs.png" width="40px" alt="Node.js">
+                        </i>
+                        <i class="bx bxl-sqlite" data-tooltip="SQLite">
+                            <img src="../assets/img/sqlite.png" width="40px" alt="SQLite">
+                        </i>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </main>
+
+    <script>
+const skillElements = document.querySelectorAll(".skills i");
+
+skillElements.forEach((skillElement) => {
+    let tooltip;
+
+    skillElement.addEventListener("mouseenter", () => {
+        const languageName = skillElement.getAttribute("data-tooltip");
+        tooltip = document.createElement("div");
+        tooltip.classList.add("tooltip");
+        tooltip.innerText = languageName;
+        document.body.appendChild(tooltip);
+        tooltip.style.left = "-9999px";
+        tooltip.style.top = "-9999px";
+
+        requestAnimationFrame(() => {
+            const rect = skillElement.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+
+            tooltip.style.left = `${rect.left + rect.width / 2 - tooltipRect.width / 2}px`;
+            tooltip.style.top = `${rect.top - tooltipRect.height - 10 + window.scrollY}px`;
+
+            tooltip.classList.add("show");
+        });
+    });
+
+    skillElement.addEventListener("mouseleave", () => {
+        if (tooltip) {
+            tooltip.classList.remove("show");
+            setTimeout(() => {
+                tooltip.remove();
+                tooltip = null;
+            }, 300);
+        }
+    });
+});
+
+    </script>
+
+
+
+</body>
+
+</html>
